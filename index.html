@@ -4,28 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Celestial</title>
-<meta name="description" content="Celestial: your birth chart, a little less sciency. Enter your birth details and see your whole sky, placement by placement. Everything is calculated on your device.">
+<meta name="description" content="Celestial: your birth chart, a little less sciency. Enter your birth details and take a guided tour of your sky, one placement at a time. Everything is calculated on your device.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=1">
-<link rel="stylesheet" href="assets/app.css?v=1">
+<link rel="stylesheet" href="assets/site.css?v=2">
+<link rel="stylesheet" href="assets/app.css?v=2">
 </head>
 <body data-world="start">
 
 <nav class="top show" aria-label="Celestial">
   <div class="wrap">
     <a class="brand" href="#/start">Celestial</a>
-    <div class="worlds" role="tablist">
-      <a class="w-l" href="#/chart" data-w="chart">My chart</a><a class="w-l" href="#/compat" data-w="compat">Compatibility</a><a class="w-l" href="#/timing" data-w="timing">Timing</a><a class="w-l" href="#/learn" data-w="learn">Learn</a>
-    </div>
-    <a class="report-btn needs-chart" href="#/report">Download report <span aria-hidden="true">↓</span></a>
-    <button class="claims-btn" id="claimsBtn" aria-pressed="false" title="Label every claim by type">Claim types</button>
+    <a class="nav-tour" href="#sky">Your tour</a>
     <button class="theme" id="theme" aria-label="Switch light or dark">◐</button>
   </div>
-  <div class="subnav" id="subnav"><div class="wrap">
-    <a class="l" href="#sky">Your sky</a><a class="l" href="#headline">Headline</a><a class="l" href="#big-three">Big Three</a><a class="l" href="#portrait">Portrait</a><a class="l" href="#life">Life</a><a class="l" href="#chart">Wheel</a><a class="l" href="#explore">Explore</a><a class="l" href="#ask">Ask my chart</a>
-  </div></div>
 </nav>
 
 <main>
@@ -36,11 +29,10 @@
         <div class="label">A Western natal chart</div>
         <h1>Celestial</h1>
         <p class="promise">Your birth chart, a little less sciency.</p>
-        <p class="lede">Every planet in your chart, in plain words: who you are, how you feel, how you show up, how you love. Tap a placement to read it, or a planet on your wheel. Underneath, a real ephemeris, and every conclusion shows its evidence.</p>
+        <p class="lede">Enter your birth details and take a guided tour of your sky: every planet in plain words, one at a time, lit up on your own chart wheel.</p>
         <ul class="start-points">
-          <li>🔒 Calculated entirely on your device. Nothing you enter is uploaded or saved unless you choose.</li>
-          <li>🔭 Astronomy and interpretation kept clearly apart.</li>
-          <li>↓ A full designed report you can save as a PDF.</li>
+          <li>Calculated entirely on your device. Nothing you enter is uploaded or saved unless you choose.</li>
+          <li>Thirteen steps: the Big Three, the rest of the sky, and the whole picture.</li>
         </ul>
       </div>
       <form class="birth-form" id="birthForm" autocomplete="off">
@@ -75,14 +67,6 @@
 
   <!-- ============ MY CHART ============ -->
   <div class="world" data-world="chart" id="w-chart" hidden></div>
-  <!-- ============ COMPATIBILITY ============ -->
-  <div class="world" data-world="compat" id="w-compat" hidden></div>
-  <!-- ============ TIMING ============ -->
-  <div class="world" data-world="timing" id="w-timing" hidden></div>
-  <!-- ============ LEARN ============ -->
-  <div class="world" data-world="learn" id="w-learn" hidden></div>
-  <!-- ============ REPORT ============ -->
-  <div class="world report-world" data-world="report" id="w-report" hidden></div>
 </main>
 
 <footer class="site-foot">
@@ -93,11 +77,10 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.min.js"></script>
-<script src="assets/core.js?v=1"></script>
-<script src="assets/engine.js?v=1"></script>
-<script src="assets/lib.js?v=1"></script>
-<script src="assets/reading.js?v=1"></script>
-<script src="assets/app.js?v=1"></script>
-<script src="assets/app-more.js?v=1"></script>
+<script src="assets/core.js?v=2"></script>
+<script src="assets/engine.js?v=2"></script>
+<script src="assets/lib.js?v=2"></script>
+<script src="assets/reading.js?v=2"></script>
+<script src="assets/app.js?v=2"></script>
 </body>
 </html>

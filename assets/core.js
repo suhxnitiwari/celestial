@@ -70,13 +70,13 @@
     };
     const Din = spread(inner), Dout = outer ? spread(outer.map(p => ({ ...p, key: "o:" + p.n }))) : {};
     const posOf = (name, which) => which === "o" ? Dout["o:" + name] : Din[name];
-    const ag = el("g", {}, svg);
+    const ag = el("g", { class: "asps" }, svg);
     aspects.forEach(a => {
       const A = posOf(a.a, "i"), B = posOf(a.b, a.cross ? "o" : "i");
       if (!A || !B) return;
       const [x1, y1] = pt(A.lon, RA), [x2, y2] = pt(B.lon, RA);
       const on = !hl || (hl.has(a.a) && hl.has(a.cross ? "o:" + a.b : a.b)) || a.hl;
-      el("line", { x1, y1, x2, y2, stroke: TONEC[TONE[a.type]], "stroke-width": on && hl ? 2.4 : 1.3, "stroke-opacity": on ? .9 : .12, "stroke-dasharray": a.type === "sextile" ? "4 4" : "" }, ag);
+      el("line", { x1, y1, x2, y2, class: on && hl ? "asp hl" : "asp", pathLength: 1, stroke: TONEC[TONE[a.type]], "stroke-width": on && hl ? 2.4 : 1.3, "stroke-opacity": on ? .9 : .12, "stroke-dasharray": a.type === "sextile" ? ".012 .012" : "" }, ag);
     });
     const drawSet = (D, r, fill, prefix) => Object.values(D).forEach(x => {
       const key = (prefix || "") + x.n, on = !hl || hl.has(key);

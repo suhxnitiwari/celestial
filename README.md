@@ -6,15 +6,18 @@
 
 ## What it is
 
-Enter a birth date, time and place and Celestial draws your whole sky: the Big Three and every planet
-after it, each one in plain words (Who I Am, How I Feel, How I Show Up, How I Think, How I Love…).
-Tap a placement or a planet on the wheel to read it. Underneath sits a full Western natal chart, taken apart and put back together:
-the headline, what the chart repeats and where it argues with itself, love / work / friendship,
-an interactive wheel, every planet, house and aspect, timing, compatibility with anyone, and a
-designed report you can save as a PDF.
+Enter a birth date, time and place and Celestial opens on your sky: your name drawn in starlight, and your
+Sun and Moon signs orbiting the moon. Then it takes you on a guided tour, one placement at a time:
 
-Every conclusion shows its evidence, and astronomy (where the planets were) is kept separate from
-astrology (what tradition says it means). The whole chart is calculated in your browser. There is no server and no API call with your birth details.
+1. **The Big Three:** who you are, how you feel, and how people first meet you
+2. **The rest of the sky:** Mercury to Pluto, each in plain words (How I Think, How I Love, How I Act…)
+3. **The whole picture:** how your planets spread across fire, earth, air and water
+
+Each step pairs a short reading with visuals: a sign orb in that element's colours with the sign's keywords
+circling it, and your own chart wheel with that planet and every planet it talks to lit up. Step through with
+the arrows, jump around on the progress track, tap a planet on the wheel, or press Play and let it guide you.
+
+The whole chart is calculated in your browser. There is no server and no API call with your birth details.
 
 ## How it's built
 
@@ -36,12 +39,9 @@ astrology math itself:
 - **Traditional techniques:** domicile, exaltation, triplicity and Egyptian bounds, sect, dispositor chains,
   mutual receptions, decans, and 28 fixed stars precessed to the birth date.
 - **Pattern finding:** grand trines, T-squares, yods and stellia are detected from the aspect list.
-- **Timing, on demand:** transit windows for the next 12 months, Jupiter, Saturn and nodal returns scanned
-  across 80 years, secondary progressions, solar arc, profections and firdaria.
 
 **An interpretation layer.** `assets/lib.js` holds the writing for every sign, planet, house and aspect, and
-`assets/reading.js` is a rules engine that turns a chart into a reading: recurring themes, contradictions,
-a headline, life areas, and *Ask My Chart* answers that show the evidence behind them.
+`assets/reading.js` turns a chart into the plain-words reading for each placement.
 
 **Offline birthplace search.** `data/cities.json` bundles ~34,000 cities (GeoNames cities15000) with coordinates and
 IANA time zones, stored as compact rows with the 356 time-zone names deduplicated into a lookup table. It loads
@@ -51,9 +51,8 @@ only when the place field is focused, and matching is accent-insensitive (Unicod
 |---|---|
 | `assets/engine.js` | Chart engine: planets, angles, houses, nodes, Lilith, aspects, dignities, sect, fixed stars, patterns, timing |
 | `assets/lib.js` | Interpretation library: signs, planets, houses, aspects, themes, history |
-| `assets/reading.js` | Rules that turn a chart into a reading: themes, contradictions, headline, life areas, Ask My Chart |
-| `assets/app.js` | The form, routing and My chart: the orbit hero, Your sky, and every section after it |
-| `assets/app-more.js` | Compatibility, Timing, Learn and the report |
+| `assets/reading.js` | Rules that turn a chart into a reading for each placement |
+| `assets/app.js` | The form, the animated hero, and the guided tour |
 | `assets/core.js` | Shared helpers and the chart-wheel renderer |
 | `data/cities.json` | ~34,000 cities with time zones, from [GeoNames](https://www.geonames.org/) (CC BY 4.0) |
 
@@ -63,11 +62,13 @@ Positions were checked against the Swiss Ephemeris.
 
 - **Plain words first.** Every placement gets a human label (How I Feel, How I Love) before any jargon,
   and the technical detail is there underneath for anyone who wants it.
-- **A night-sky orbit hero** where your Sun sign circles the moon, drawn in SVG (Pisces gets the koi).
-- **Compatibility in two layers:** Sun-sign pairings first, then two full charts compared contact by contact,
-  with the questions changing by relationship (a parent isn't a partner).
-- **A designed report** with its own print stylesheet, saved as a PDF straight from the browser.
-- Light and dark themes, keyboard-navigable city search, and `prefers-reduced-motion` support.
+- **A guided tour, not a wall of text.** One placement per step, grouped into three chapters, with a
+  progress track, arrow-key navigation and an autoplay mode.
+- **A night-sky orbit hero** where your Sun and Moon signs circle the moon, drawn in SVG (Pisces gets the koi),
+  with letters that rise into place, a comet on the inner ring, shooting stars and a parallax tilt that follows the cursor.
+- **Motion with meaning:** aspect lines draw themselves between the planets that talk to each other, and the focused
+  planet pulses on the wheel.
+- Light and dark themes, keyboard-navigable city search, and full `prefers-reduced-motion` support.
 
 It brings together three earlier projects:
 
@@ -75,8 +76,7 @@ It brings together three earlier projects:
   "Your sky" view, with a reading card and wheel side by side, now for anyone's chart, not just mine.
 - **[astrology-results](https://github.com/suhxnitiwari/astrology-results)**: the night-sky design and the
   orbit hero.
-- **Charted**: the in-browser chart engine, the interpretation rules, the city search, and the
-  Compatibility, Timing, Learn and report sections. It now lives entirely here.
+- **Charted**: the in-browser chart engine, the interpretation rules and the city search. It now lives entirely here.
 
 ## Privacy
 
