@@ -8,12 +8,13 @@
 
 Enter a birth date, time and place and Celestial draws your whole sky: the Big Three and every planet
 after it, each one in plain words (Who I Am, How I Feel, How I Show Up, How I Think, How I Love…).
-Tap a placement or a planet on the wheel to read it. Underneath sits a full Western natal chart:
+Tap a placement or a planet on the wheel to read it. Underneath sits a full Western natal chart, taken apart and put back together:
 the headline, what the chart repeats and where it argues with itself, love / work / friendship,
 an interactive wheel, every planet, house and aspect, timing, compatibility with anyone, and a
 designed report you can save as a PDF.
 
-The whole chart is calculated in your browser. There is no server and no API call with your birth details.
+Every conclusion shows its evidence, and astronomy (where the planets were) is kept separate from
+astrology (what tradition says it means). The whole chart is calculated in your browser. There is no server and no API call with your birth details.
 
 ## How it's built
 
@@ -74,8 +75,8 @@ It brings together three earlier projects:
   "Your sky" view, with a reading card and wheel side by side, now for anyone's chart, not just mine.
 - **[astrology-results](https://github.com/suhxnitiwari/astrology-results)**: the night-sky design and the
   orbit hero.
-- **[charted](https://github.com/suhxnitiwari/charted)**: the in-browser chart engine, the interpretation
-  rules, the city search, and the Compatibility, Timing, Learn and report sections.
+- **Charted**: the in-browser chart engine, the interpretation rules, the city search, and the
+  Compatibility, Timing, Learn and report sections. It now lives entirely here.
 
 ## Privacy
 
@@ -100,4 +101,4 @@ Astronomy by [astronomy-engine](https://github.com/cosinekitty/astronomy) (MIT).
 *Not real science. Fun science. Astrology is used here as a language for reflection and play, not as a
 scientific personality assessment.*
 
-Built by [Suhani Tiwari](https://suhanitiwari.com).
+Built by [Suhani Tiwari](https://suhanitiwari.com). All rights reserved; see [LICENSE](LICENSE).
